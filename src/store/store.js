@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 
 import changePasswordReducer from "./Reducer/ChangePasswordReducer";
+import forgotPasswordReducer from "./Reducer/ForgotPasswordReducer";
 import RefreshAccessTokenReducer from './Reducer/refreshAcessToken_Reducer';
 import { getResourceReducer, requestResourceReducer } from './Reducer/Reducergetresource';
 import    getFounderDetalsReducer from './Reducer/Get_Founder_Details_Reducer'
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   uploadDocument: uploadDocReducer,
   requestedDocs: fetchRequestedDocsReducer,
   changePassword: changePasswordReducer,
+  forgotPassword: forgotPasswordReducer,
   chatReducer,
 });
 

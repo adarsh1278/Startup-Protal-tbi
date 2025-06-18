@@ -1,11 +1,9 @@
 'use client';
-import { usePathname } from 'next/navigation';
 import localFont from 'next/font/local';
 import './globals.css';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
 import store from '@/store/store';
-import Check from '@/utils/validateToken';
 
 // Load local fonts
 const geistSans = localFont({
@@ -23,16 +21,29 @@ const geistMono = localFont({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <Toaster/>
-        <Provider
-          store={store}
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <Check></Check>
-          {' '}
-          
-          
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Toaster position="top-center" toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+          success: {
+            duration: 3000,
+            style: {
+              background: '#2E7D32',
+              color: '#fff',
+            },
+          },
+          error: {
+            duration: 4000,
+            style: {
+              background: '#D32F2F',
+              color: '#fff',
+            },
+          },
+        }} />
+        <Provider store={store}>
           {children}
         </Provider>
       </body>
